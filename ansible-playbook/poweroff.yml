@@ -1,0 +1,10 @@
+---
+- name: Shutdown staging servers
+  hosts: staging_servers
+  become: yes
+
+  tasks:
+
+  - name: Shutdown staging servers
+    shell: /sbin/shutdown -h now
+    ignore_errors: 'yes'

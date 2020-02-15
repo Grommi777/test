@@ -1,0 +1,10 @@
+---
+- name: SElinux disable on staging servers
+  hosts: staging_servers
+  become: yes
+
+  tasks:
+
+  - name: Disable SELinux
+    selinux:
+      state: disabled

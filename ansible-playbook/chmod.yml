@@ -1,0 +1,11 @@
+---
+- name: Change permissions
+  hosts: staging_servers
+  become: yes
+
+  tasks:
+
+  - name: Change permissions on socket (because test application launch from root)
+    file:
+      path: /var/run/docker.sock
+      mode: '0666'

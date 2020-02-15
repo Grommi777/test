@@ -1,0 +1,13 @@
+---
+- name: Firewalld stop and disable
+  hosts: staging_servers
+  become: yes
+
+  tasks:
+
+  - name: Firewalld stop and mask
+    systemd:
+      name: firewalld
+      state: stopped
+      masked: yes
+      enabled: no

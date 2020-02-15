@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                sh '''
+                    curl -o script.py "https://raw.githubusercontent.com/Grommi777/test/master/pipeline-script/script.py"
+                    curl -o Dockerfile "https://raw.githubusercontent.com/Grommi777/test/master/dockerfile/Dockerfile"
+                    docker build -t python-script .
+                    docker run -d python-script
+                '''
+            }
+        }
+    }
+}

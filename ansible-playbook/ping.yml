@@ -1,0 +1,9 @@
+---
+- name: Test connection to staging servers
+  hosts: staging_servers
+  become: yes
+
+  tasks:
+
+  - name: Ping my servers
+    ping:
